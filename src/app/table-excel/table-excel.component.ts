@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component , Input} from '@angular/core';
 import { DataService } from '../service/data-service.service';
 
 export interface PeriodicElement {
@@ -27,6 +27,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class TableExcelComponent {
   constructor(private dataService: DataService) { }
+  @Input() dataXlsx: any[]=[];
+
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
 
