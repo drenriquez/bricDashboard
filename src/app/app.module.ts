@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxFileDropModule } from 'ngx-file-drop';
 
-import { MaterialFileInputModule } from 'ngx-material-file-input';
-import { MatFileUploadModule } from 'angular-material-fileupload';
+//import { MaterialFileInputModule } from 'ngx-material-file-input';
+//import { MatFileUploadModule } from 'angular-material-fileupload';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -35,8 +35,6 @@ import { TableExcelComponent } from './table-excel/table-excel.component';
     BrowserAnimationsModule,
     NgxElectronModule,
     MatButtonModule,
-    MatFileUploadModule,
-    MaterialFileInputModule,
     MatIconModule,
   ],
   providers: [],
