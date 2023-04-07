@@ -8,6 +8,7 @@ import * as XLSX from 'xlsx';
 })
 export class XlsxToJsonComponent {
   dataFromFile:any;
+  fileName:string='';
   panelOpenState = false;
   handleFileDrop(event: any) {
     const file = event.target.files[0];
@@ -19,6 +20,7 @@ export class XlsxToJsonComponent {
       const data = XLSX.utils.sheet_to_json(worksheet, { header: 1, raw: false });
       console.log(data);
       this.dataFromFile=data;
+      this.fileName=file.name;
       console.log(file.name);
       console.log(file.type);
       console.log(file.size);

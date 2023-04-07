@@ -29,6 +29,7 @@ export class TableExcelComponent {
   constructor(private dataService: DataService) { }
   @Input() dataXlsx: any[]=[];
 
+
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
 
