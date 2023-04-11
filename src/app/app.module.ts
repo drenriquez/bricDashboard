@@ -17,13 +17,15 @@ import {MatTableModule} from '@angular/material/table';
 import { HomeComponent } from './home/home.component';
 import { XlsxToJsonComponent } from './xlsx-to-json/xlsx-to-json.component';
 import { TableExcelComponent } from './table-excel/table-excel.component';
+import { JsonGeneratorComponent } from './json-generator/json-generator.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     XlsxToJsonComponent,
-    TableExcelComponent
+    TableExcelComponent,
+    JsonGeneratorComponent
   ],
   imports: [
     MatTableModule,
