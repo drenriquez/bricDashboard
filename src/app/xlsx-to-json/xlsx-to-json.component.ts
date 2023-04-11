@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import * as XLSX from 'xlsx';
+import { DataService } from '../service/data-service.service';
 
 @Component({
   selector: 'app-xlsx-to-json',
@@ -10,6 +11,7 @@ export class XlsxToJsonComponent {
   dataFromFile:any;
   fileName:string='';
   panelOpenState = false;
+  constructor(private dataService: DataService) {};
   handleFileDrop(event: any) {
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -25,6 +27,7 @@ export class XlsxToJsonComponent {
       console.log(file.type);
       console.log(file.size);
       console.log(file);
+      this.dataService.setData(data);
     };
     reader.readAsBinaryString(file);
   }
