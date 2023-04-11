@@ -2,6 +2,7 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const url = require('url');
 const electronReload = require('electron-reloader');
+const readRow = require('./services/reading_functions.js')
 
 let mainWindow;
 
@@ -50,6 +51,7 @@ app.on('activate', function () {
 });
 
 ipcMain.on('provaIpc',()=>{
+  readRow();
   console.log('********provaIpc invocata**********');
   mainWindow.webContents.send('rispostaIpc');
 })
