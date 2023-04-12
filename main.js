@@ -2,7 +2,9 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const url = require('url');
 const electronReload = require('electron-reloader');
-const readRow = require('./services/reading_functions.js')
+const { readRow, readSchema } = require('./services/reading_functions.js');
+
+const fs = require('fs');
 
 let mainWindow;
 
@@ -24,7 +26,7 @@ function createWindow() {
       slashes: true,
     })
   );
-
+  mainWindow.webContents.openDevTools();
   // Apri il DevTools solo in modalità di sviluppo
   if (process.env.NODE_ENV === 'development') {
     mainWindow.webContents.openDevTools();
@@ -50,8 +52,27 @@ app.on('activate', function () {
   if (BrowserWindow.getAllWindows().length === 0) createWindow();
 });
 
-ipcMain.on('provaIpc',()=>{
-  readRow();
-  console.log('********provaIpc invocata**********');
-  mainWindow.webContents.send('rispostaIpc');
+// ipcMain.on('provaIpc',()=>{
+//   readRow();
+//   console.log('********provaIpc invocata**********');
+//   mainWindow.webContents.send('rispostaIpcMainProvaIpc');
+// })
+ipcMain.on('readXlsx',(event, arg) => {
+  console.log('main.js++++++++++ readXlsx activated +++++++++++++++++++++');
+  console.log(arg); // Visualizza "World" nella console del renderer process
+  readRow(arg);
+  mainWindow.webContents.send('rispostaIpcMainReadXlsx');
+});
+ipcMain.on('readSchema',async (event, arg) => {
+  console.log('main.js++++++++++ readSchema activated +++++++++++++++++++++');
+  readSchema()
+  .then((jsonData) => {
+    // Usa il file JSON come necessario
+    console.log(jsonData);
+    mainWindow.webContents.send('resultIpcMainReadSchema',jsonData);
+  })
+  .catch((err) => {
+    // Gestisci l'errore come necessario
+    console.error(err);
+  });
 })

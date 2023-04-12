@@ -8,20 +8,23 @@ import { ElectronService } from 'ngx-electron-fresh';
 })
 export class JsonGeneratorComponent {
   constructor(private dataService: DataService, private electronService: ElectronService) {
-    this.electronService.ipcRenderer.on('rispostaIpc',()=>{
-     console.log('+++++++++ricevuto da ipcMain++++++++++')
-   })
+
+    this.electronService.ipcRenderer.on('rispostaIpcMainReadXlsx',()=>{
+      console.log('-------------ricevuto da ipcMain in rispostaIpcMainReadXlsx -----------')
+    })
   }
 
 
   data=this.dataService.getData()?this.dataService.getData():[];
+
   getData():any{
     console.log(this.data);
   }
-  public provaIpc(){
+
+  public sendXlsx(){
     if(this.electronService.isElectronApp){//verifica se è una app e non una webapp
-      this.electronService.ipcRenderer.send('provaIpc');
-      console.log('button test 0k');
+      this.electronService.ipcRenderer.send('readXlsx',this.data);
+      console.log('button sendXlsx');
     }
   }
 }
