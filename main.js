@@ -3,7 +3,7 @@ const path = require('path');
 const url = require('url');
 const electronReload = require('electron-reloader');
 const { readRow, readSchema } = require('./services/reading_functions.js');
-
+const { create_folder_and_schema }= require('./services/create_folder.js');
 const fs = require('fs');
 
 let mainWindow;
@@ -33,9 +33,10 @@ function createWindow() {
   }
 }
 
+create_folder_and_schema();
+
 app.whenReady().then(() => {
   createWindow();
-
   // Abilita il reload automatico solo in modalità di sviluppo
   if (process.env.NODE_ENV === 'development') {
     electronReload(__dirname, {
@@ -57,6 +58,8 @@ app.on('activate', function () {
 //   console.log('********provaIpc invocata**********');
 //   mainWindow.webContents.send('rispostaIpcMainProvaIpc');
 // })
+
+
 ipcMain.on('readXlsx',(event, arg) => {
   console.log('main.js++++++++++ readXlsx activated +++++++++++++++++++++');
   console.log(arg); // Visualizza "World" nella console del renderer process

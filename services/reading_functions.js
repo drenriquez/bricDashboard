@@ -1,10 +1,14 @@
 const fs = require('fs');
 const path = require('path');
+const { app } = require('electron');
 
 
 async function readSchema() {
   console.log('reading_function.js  ---readSchema------');
-  const pathSchema = path.join(__dirname, 'schema.json');
+  const documentsPath = app.getPath('documents');
+  const bricDashboardPath = path.join(documentsPath, 'bricDashboard');
+  const pathSchema = path.join(bricDashboardPath, 'schema.json');
+  //const pathSchema = path.join(__dirname, 'schema.json');
 
   return new Promise((resolve, reject) => {
     fs.readFile(pathSchema, 'utf8', (err, data) => {
