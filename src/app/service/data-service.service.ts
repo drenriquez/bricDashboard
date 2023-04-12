@@ -6,7 +6,10 @@ import { Injectable } from '@angular/core';
 })
 
 export class DataService {
+
   private globalData: any;
+  private schema:any;
+
   constructor() { }
 
   getData(): any {
@@ -17,4 +20,11 @@ export class DataService {
     this.globalData = data;
   }
 
+  getSchema(): any {
+    return this.schema;
+  }
+
+  setSchema(data: any): void {
+    this.schema = data;
+  }
 }

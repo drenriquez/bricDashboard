@@ -27,4 +27,7 @@ export class JsonGeneratorComponent {
       console.log('button sendXlsx');
     }
   }
+  public getJsonSchema(){
+    console.log(this.dataService.getSchema());
+  }
 }
