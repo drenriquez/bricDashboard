@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxFileDropModule } from 'ngx-file-drop';
+import { NgxJsonViewerModule } from 'ngx-json-viewer';
 
 //import { MaterialFileInputModule } from 'ngx-material-file-input';
 //import { MatFileUploadModule } from 'angular-material-fileupload';
@@ -13,6 +14,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
+//import {ClipboardModule} from '@angular/cdk/clipboard';
 
 import { HomeComponent } from './home/home.component';
 import { XlsxToJsonComponent } from './xlsx-to-json/xlsx-to-json.component';
@@ -33,6 +35,7 @@ import { JsonGeneratorComponent } from './json-generator/json-generator.componen
     MatGridListModule,
     NgxFileDropModule,
     BrowserModule,
+    NgxJsonViewerModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NgxElectronModule,
