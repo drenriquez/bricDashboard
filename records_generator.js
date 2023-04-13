@@ -1,3 +1,9 @@
+console.log('test records_generator')
+arrayIndexValue= ["PESO",1,0];
+fields=["type","value","patientId"];
+setting=[0,true];
+values= [['hr001','10kg','test','a'],['hr002','20kg','test','b'],['hr003','30kg','test','c'],['hr004','40kg','test','c']]
+
 function createRecordsForValue(fields,arrayIndexValue,setting,valuesXlsx){
   //for example,
   //arrayIndexValue= ["PESO",159,0]
@@ -31,3 +37,4 @@ function createRecordsForValue(fields,arrayIndexValue,setting,valuesXlsx){
     }
   }
 };
+createRecordsForValue(fields,arrayIndexValue,setting,values)
