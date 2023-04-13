@@ -71,7 +71,7 @@ ipcMain.on('readSchema',async (event, arg) => {
   readSchema()
   .then((jsonData) => {
     // Usa il file JSON come necessario
-    console.log(jsonData);
+    console.log(jsonData.length);
     mainWindow.webContents.send('resultIpcMainReadSchema',jsonData);
   })
   .catch((err) => {
