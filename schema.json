@@ -1,0 +1,111 @@
+[
+  {
+    "Patient":{
+        "fields":["centerId","biobankCode","pid","code"],
+        "setting":[[0,true],[0,true],[0,true],[0,true]],
+        "values":[
+            ["dd74ba73-8a99-41dd-8974-0a6912d3591a",1,5,0]
+        ]
+    }
+  },
+  {
+    "Anagrafic":{
+        "fields":["type","value","patientId"],
+        "setting":[[0,true],[0,true],[0,true]],
+        "values":[
+            ["SESSO",150,0],
+            ["PESO",159,0],
+            ["ALTEZZA",158,0],
+            ["ANNI COMPIUTI",155,0],
+            ["ETNIA",18,0],
+            ["GRADO DI ISTRUZIONE",19,0],
+            ["OCCUPAZIONE",17,0],
+            ["FUMATORE?",163,0],
+            ["SIGARETTE AL GIORNO",164,0],
+            ["ANNI DA FUMATORE",165,0],
+            ["DA QUANTI ANNI HA SMESSO DI FUMARE",166,0]
+        ]
+    }
+  },
+  {
+    "Comorbidities":{
+        "fields":["type","value","patientId"],
+        "setting":[[0,true],[0,true],[0,true]],
+        "values":[
+            ["ASMA",23,0],
+            ["DIABETE",59,0],
+            ["PATOLOGIE EPATICHE",62,0],
+            ["PATOLOGIE RENALI",63,0],
+            ["MALATTIE VASCOLARI PERIFERICHE",64,0],
+            ["ULCERA",65,0],
+            ["MALATTIE TESSUTO CONNETTIVO",66,0],
+            ["ALTRE MALATTIE",68,0],
+            ["SIBILI AL TORACE",71,0],
+            ["DIAG.COVID19",126,0],
+            ["1 yr probability diagnosis lung cancer during first CT",null,0]
+        ]
+    }
+  },
+  {
+    "Anamnesis":{
+        "fields":["type","value","period","pharmTreatment","info","patientID"],
+        "setting":[[0,true],[0,true],[0,true],[0,true],[0,true],[0,true]],
+        "values":[
+            ["TUMORE DIAGNOSTICATO",20,21,null,22,0],
+            ["POLMONITE",25,null,null,null,0],
+            ["ENFISEMA O BPCO",26,null,null,null,0],
+            ["IPERTENSIONE",27,28,null,null,0],
+            ["ALTI VALORI DI COLESTEROLO",31,32,33,null,0],
+            ["INFARTO MIOCARDICO",35,36,null,null,0],
+            ["INTERVENTO DI ANGIOPLASTICA O STENT DELLE ARTERIE CORONARICHE",49,50,null,null,0],
+            ["INTERVENTO DI BYPASS DELLE ARTERIE CORONARICHE",51,52,null,null,0],
+            ["ANGINA",53,54,null,null,0],
+            ["ICTUS",55,56,null,null,0],
+            ["INSUFFICIENZA CARDIACA",57,58,null,null,0],
+            ["MALATTIE POLMONARI RILEVANTI ULTIMI 3 ANNI",75,null,null,null,0],
+            ["MOLTEPLICI MALATTIE POLMONARI RILEVANTI NEGLI ULTIMI 3 ANNI",77,null,null,null,0],
+            ["TEST DI FUNZIONALITÀ POLMONARE NEGLI ULTIMI 5 ANNI",79,null,null,null,0],
+            ["ESPOSIZIONE ALL'AMIANTO",85,86,null,null,0],
+            ["CONVIVANZA CON FUMATORE",90,null,null,null,0],
+            ["FUMATORE",null,91,null,null,0],
+            ["CONSUMA 3 PPOSZIONI DI FRUTTA O VERDURA AL GIORNO",92,null,null,null,0],
+            ["CONSUMO GIORNALIERO DI ALCOL",93,null,null,null,0],
+            ["AUTOVALUTAZIONE STATO DI SALUTE",94,null,null,null,0],
+            ["STATO DI SALUTE GENERALE CHE LIMITA LO SVOLGIMENTO DI ATTIVITÀ MODERATE",95,null,null,null,0],
+            ["STATO DI SALUTE GENERALE CHE LIMITA LO SVOLGIMENTO DI ATTIVITÀ IMPEGNATIVE",96,null,null,null,0],
+            ["SGRY",[293,294],291,null,[292,296],0],
+            ["HISTOLOGICAL",296,291,null,[297,298,299,300],0],
+            ["Stadio_sec_T_8th",297,291,null,null,0],
+            ["Stadio_sec_N_8th",298,291,null,null,0],
+            ["Stadio_sec_M_8th",299,291,null,null,0],
+            ["Stadio_sec_Masaoka_Koga",300,291,null,null,0]
+        ]
+    }
+  },
+  {
+    "AnamnesiFamily":{
+        "fields":["type","value","deadOfCancer","deadOFHeartAttack","smokerForHwManyYears","patientID"],
+        "setting":[[0,true],[0,true],[0,true]],
+        "values":[
+            ["PARENTE GENERICO",81,82,null,null,0],
+            ["DONNA IN FAMIGLIA <65 ANNI",null,null,83,null,0],
+            ["UOMO IN FAMIGLIA <65 ANNI",null,null,84,null,0],
+            ["QUALCUNO IN CASA",null,null,null,89,0]
+        ]
+    }
+  },
+  {
+      "ImagingTestFinding":{
+          "fields":["noduleCount","posProb","LongAxis","ShortAxis","MaxDiam","VolTot","consistenzaNodulo","bordiReg","CalcificazioneBenign","FormaSpiculata","noduloVistoInSerie","noduloVistoInImmagine","VDT","status","change","imagingTestID"],
+          "setting":[[0,true],[0,true],[0,true]],
+          "values":[
+              [169,172,173,174,175,176,181,182,183,184,185,186,null,null,null,201],
+              [169,205,206,207,208,209,210,null,null,211,212,213,214,215,216,218],
+              [169,222,223,224,225,226,227,null,null,228,229,230,231,232,233,235],
+              [169,239,240,241,242,243,244,null,null,245,246,247,248,249,250,252],
+              [169,256,257,258,259,260,261,null,null,262,263,264,265,266,267,269],
+              [169,273,274,275,276,277,278,null,null,279,280,281,282,283,284,286]
+          ]
+      }
+  }
+]
