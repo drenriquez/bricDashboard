@@ -1,11 +1,13 @@
 const fs = require('fs');
+const XLSX = require('xlsx');
+
 console.log('test records_generator')
 arrayIndexValue= ["PESO",[1,2],0];
 fields=["type","value","patientId"];
 setting=[0,true];
 values= [
   ['hr001','10kg','test1','a','bio1','m1','pid1','161cm1','eur1','61'],
-  ['hr002','20kg','test2','b','bio2','f2','pid2','161cm2','eur2','62'],
+  [null,'20kg','test2','b','bio2','f2','pid2','161cm2','eur2','62'],
   ['hr003','30kg','test3','c','bio3','m3','pid3','161cm3','eur3','63'],
   ['hr004','40kg','test4','c','bio4','f4','pid4','161cm4','eur4','64']
 ]
@@ -28,6 +30,8 @@ function createRecordsForValue(fields, arrayIndexValue, setting, valuesXlsx) {
       const indexValue = arrayIndexValue[indexField];
       if (typeof indexValue === 'string') {
         valueResult = indexValue;
+      } else if (indexValue===null) {
+        valueResult = null;
       } else if (indexValue.length > 1) {
         valueResult = indexValue.map(val => rowValue[val]).join('');
       } else {
@@ -81,7 +85,7 @@ let array_schema=[
   {
     "Patient":{
         "fields":["centerId","biobankCode","pid","code"],
-        "setting":[0,true],
+        "setting":null,
         "values":[
             ["dd74ba73-8a99-41dd-8974-0a6912d3591a",4,6,0]
         ]
@@ -92,7 +96,7 @@ let array_schema=[
         "fields":["type","value","patientId"],
         "setting":[0,true],
         "values":[
-            ["SESSO",5,0],
+            ["SESSO",null,0],
             ["PESO",1,0],
             ["ALTEZZA",7,0],
             ["ANNI COMPIUTI",9,0],
@@ -120,8 +124,29 @@ function jsonGeneratorForTable (array_schema, excelData){
     }
     tableObject[nameTable]=recordsList;
     recordsForTable.push(tableObject);
+   // console.log(recordsForTable)
   }
-  console.log(recordsForTable)
+console.log(recordsForTable)
  return recordsForTable
 }
-jsonGeneratorForTable(array_schema,values)
+
+
+
+
+//jsonGeneratorForTable(array_schema,values)
+(async function main(){
+  const workbook = XLSX.readFile('TEST_INAIL_da_caricare.xlsx');
+  const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+  const dataXlsx = XLSX.utils.sheet_to_json(worksheet, { header: 1, raw: false });
+
+  //console.log(dataXlsx.length);
+  readSchema().then((res)=>{
+    //console.log(res)
+    jsonGeneratorForTable(array_schema,dataXlsx)
+  })
+
+  // for(let tab of res){
+  //   console.log(Object.keys(tab)[0])
+  // }
+  //jsonGeneratorForTable(Schema,dataXlsx)
+})()

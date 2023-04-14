@@ -16,6 +16,8 @@ function createRecordsForValue(fields, arrayIndexValue, setting, valuesXlsx) {
       const indexValue = arrayIndexValue[indexField];
       if (typeof indexValue === 'string') {
         valueResult = indexValue;
+      }else if (indexValue===null) {
+        valueResult = null;
       } else if (indexValue.length > 1) {
         valueResult = indexValue.map(val => rowValue[val]).join('');
       } else {

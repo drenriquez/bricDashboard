@@ -2,7 +2,7 @@
   {
     "Patient":{
         "fields":["centerId","biobankCode","pid","code"],
-        "setting":[[0,true],[0,true],[0,true],[0,true]],
+        "setting":[0,true],
         "values":[
             ["dd74ba73-8a99-41dd-8974-0a6912d3591a",1,5,0]
         ]
@@ -11,7 +11,7 @@
   {
     "Anagrafic":{
         "fields":["type","value","patientId"],
-        "setting":[[0,true],[0,true],[0,true]],
+        "setting":[0,true],
         "values":[
             ["SESSO",150,0],
             ["PESO",159,0],
@@ -30,7 +30,7 @@
   {
     "Comorbidities":{
         "fields":["type","value","patientId"],
-        "setting":[[0,true],[0,true],[0,true]],
+        "setting":[0,true],
         "values":[
             ["ASMA",23,0],
             ["DIABETE",59,0],
@@ -49,7 +49,7 @@
   {
     "Anamnesis":{
         "fields":["type","value","period","pharmTreatment","info","patientID"],
-        "setting":[[0,true],[0,true],[0,true],[0,true],[0,true],[0,true]],
+        "setting":[0,true],
         "values":[
             ["TUMORE DIAGNOSTICATO",20,21,null,22,0],
             ["POLMONITE",25,null,null,null,0],
@@ -85,7 +85,7 @@
   {
     "AnamnesiFamily":{
         "fields":["type","value","deadOfCancer","deadOFHeartAttack","smokerForHwManyYears","patientID"],
-        "setting":[[0,true],[0,true],[0,true]],
+        "setting":[0,true],
         "values":[
             ["PARENTE GENERICO",81,82,null,null,0],
             ["DONNA IN FAMIGLIA <65 ANNI",null,null,83,null,0],
@@ -97,7 +97,7 @@
   {
       "ImagingTestFinding":{
           "fields":["noduleCount","posProb","LongAxis","ShortAxis","MaxDiam","VolTot","consistenzaNodulo","bordiReg","CalcificazioneBenign","FormaSpiculata","noduloVistoInSerie","noduloVistoInImmagine","VDT","status","change","imagingTestID"],
-          "setting":[[0,true],[0,true],[0,true]],
+          "setting":null,
           "values":[
               [169,172,173,174,175,176,181,182,183,184,185,186,null,null,null,201],
               [169,205,206,207,208,209,210,null,null,211,212,213,214,215,216,218],
