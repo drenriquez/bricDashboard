@@ -71,4 +71,35 @@ table{
   transform: scale(1.2); /* aumenta le dimensioni del 20% */
   transition: transform 0.2s ease-in-out; /* aggiunge una transizione graduale */
 }
+   /* Stili per il tag a */
+a {
+color: blue; /* colore del testo predefinito */
+text-decoration: none; /* rimuove il sottolineato predefinito */
+position: relative; /* imposta la posizione relativa */
+}
 
+/* Stili per la scritta al passaggio del mouse */
+a::before {
+  content: attr(data-title); /* visualizza il contenuto dell'attributo data-title */
+  position: absolute; /* imposta la posizione assoluta */
+  top: 0%; /* posiziona il testo sotto il tag a */
+  left: 200%; /* centra il testo orizzontalmente */
+  transform: translateX(-50%); /* centra il testo verticalmente */
+  padding: 5px; /* aggiunge spazio intorno al testo */
+  background-color: rgba(32, 32, 32, 0.7); /* imposta lo sfondo semi trasparente */
+  color: #fff; /* cambia il colore del testo */
+  font-size: 16px; /* imposta la dimensione del carattere */
+  font-weight: bold;
+  font-family:cursive ;
+  color:#10805e;
+  border-radius: 3px; /* arrotonda gli angoli del riquadro */
+  visibility: hidden; /* nasconde la scritta personalizzata */
+  opacity: 0; /* rende la scritta personalizzata trasparente */
+  transition: visibility 0s, opacity 0.5s ease-in-out; /* aggiunge un'animazione alla transizione */
+}
+
+/* Stili per la scritta al passaggio del mouse */
+a:hover::before {
+  visibility: visible; /* mostra la scritta personalizzata */
+  opacity: 1; /* rende la scritta personalizzata opaca */
+}
