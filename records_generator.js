@@ -20,7 +20,8 @@ function createRecordsForValue(fields, arrayIndexValue, setting, valuesXlsx) {
   //values= [['hr001','10kg','test','a'],['hr002','20kg','test','b'],['hr003','30kg','test','c'],['hr004','40kg','test','c']]
   let listOfRecords=[];
   for (const rowValue of valuesXlsx) {
-    if (setting !== null && rowValue[setting[0]] === null) {
+    if (setting !== null && (rowValue[setting[0]] === null|| rowValue[setting[0]]===undefined  )) {
+
       continue;
     }
     const record = {};
@@ -85,9 +86,9 @@ let array_schema=[
   {
     "Patient":{
         "fields":["centerId","biobankCode","pid","code"],
-        "setting":null,
+        "setting":[0,true],
         "values":[
-            ["dd74ba73-8a99-41dd-8974-0a6912d3591a",4,6,0]
+            ["dd74ba73-8a99-41dd-8974-0a6912d3591a",1,6,0]
         ]
     }
   },
@@ -115,7 +116,6 @@ function jsonGeneratorForTable (array_schema, excelData){
     const fields=tab[nameTable]['fields'];
     const setting=tab[nameTable]['setting'];
     const valuesMatrix=tab[nameTable]['values'];
-    let index=1
     let recordsList=[];
     // Itera attraverso la matrice di valori della tabella e crea un elenco di record per ogni singolo array di valori
     for(let valArray of valuesMatrix){
@@ -126,7 +126,7 @@ function jsonGeneratorForTable (array_schema, excelData){
     recordsForTable.push(tableObject);
    // console.log(recordsForTable)
   }
-console.log(recordsForTable)
+//console.log(recordsForTable)
  return recordsForTable
 }
 
@@ -135,14 +135,15 @@ console.log(recordsForTable)
 
 //jsonGeneratorForTable(array_schema,values)
 (async function main(){
-  const workbook = XLSX.readFile('TEST_INAIL_da_caricare.xlsx');
+  const workbook = XLSX.readFile('TEST_INAIL2da_caricare.xlsx');
   const worksheet = workbook.Sheets[workbook.SheetNames[0]];
   const dataXlsx = XLSX.utils.sheet_to_json(worksheet, { header: 1, raw: false });
-
+ let tablesJson=[]
   //console.log(dataXlsx.length);
   readSchema().then((res)=>{
     //console.log(res)
-    jsonGeneratorForTable(array_schema,dataXlsx)
+    tablesJson=jsonGeneratorForTable(res,dataXlsx);
+    console.log(tablesJson[4]);
   })
 
   // for(let tab of res){

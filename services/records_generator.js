@@ -6,7 +6,7 @@ function createRecordsForValue(fields, arrayIndexValue, setting, valuesXlsx) {
   //values= [['hr001','10kg','test','a'],['hr002','20kg','test','b'],['hr003','30kg','test','c'],['hr004','40kg','test','c']]
   let listOfRecords=[];
   for (const rowValue of valuesXlsx) {
-    if (setting !== null && rowValue[setting[0]] === null) {
+    if (setting !== null && (rowValue[setting[0]] === null|| rowValue[setting[0]]===undefined  )) {
       continue;
     }
     const record = {};
@@ -45,7 +45,6 @@ function jsonGeneratorForTable (array_schema, excelData){
     const fields=tab[nameTable]['fields'];
     const setting=tab[nameTable]['setting'];
     const valuesMatrix=tab[nameTable]['values'];
-    let index=1
     let recordsList=[];
     // Itera attraverso la matrice di valori della tabella e crea un elenco di record per ogni singolo array di valori
     for(let valArray of valuesMatrix){

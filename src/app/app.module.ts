@@ -20,6 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { XlsxToJsonComponent } from './xlsx-to-json/xlsx-to-json.component';
 import { TableExcelComponent } from './table-excel/table-excel.component';
 import { JsonGeneratorComponent } from './json-generator/json-generator.component';
+import { VisualizerJsonSchemaComponent } from './visualizer-json-schema/visualizer-json-schema.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { JsonGeneratorComponent } from './json-generator/json-generator.componen
     HomeComponent,
     XlsxToJsonComponent,
     TableExcelComponent,
-    JsonGeneratorComponent
+    JsonGeneratorComponent,
+    VisualizerJsonSchemaComponent
   ],
   imports: [
     MatTableModule,

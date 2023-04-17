@@ -18,6 +18,7 @@ export class JsonGeneratorComponent {
   value='test'
   jsonData=this.dataService.getSchema();
   data=this.dataService.getData()?this.dataService.getData():[];
+  jsonData2 = JSON.stringify(this.jsonData, null, 2);
 
   getData():any{
     console.log(this.data);
