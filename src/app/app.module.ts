@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
-
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 //import { MaterialFileInputModule } from 'ngx-material-file-input';
 //import { MatFileUploadModule } from 'angular-material-fileupload';
 import {MatButtonModule} from '@angular/material/button';
@@ -43,6 +44,8 @@ import { VisualizerJsonSchemaComponent } from './visualizer-json-schema/visualiz
     NgxElectronModule,
     MatButtonModule,
     MatIconModule,
+    FormsModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

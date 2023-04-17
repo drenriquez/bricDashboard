@@ -1,9 +1,30 @@
-table {
-  width: 120%;
-}
 .example-container {
   height: 350px;
   max-width: 100%;
   overflow: auto;
   overflow-x: scroll;
+}
+table {
+  border-collapse: collapse;
+}
+
+th {
+  border: 2px solid #ccc;
+  background-color: #f0f0f0;
+  padding: 0;
+  max-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #000;
+}
+
+td {
+  border: 1px solid #ccc;
+  padding: 0px;
+  color: #333232;
+  max-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

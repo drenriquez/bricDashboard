@@ -1,37 +1,50 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { DataService } from '../service/data-service.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-table-excel',
   templateUrl: './table-excel.component.html',
   styleUrls: ['./table-excel.component.scss']
 })
-export class TableExcelComponent implements OnInit {
-  constructor(private dataService: DataService) { }
-  ngOnInit(): void {
-   // throw new Error('Method not implemented.');
-  }
-  @Input() dataXlsx: any[]=[];
+export class TableExcelComponent {
+  @Input() dataXlsx: any[] = [];
+  columns: string[] = [];
+  selectedRowIndices: number[] = [];
+  selectAll: boolean = true;
 
-
-  // definisci la matrice di dati e l'intestazione
-  data2 = [
-    ['position', 'name', 'weight', 'symbol'],
-    [1, 'Hydrogen', 1.0079, 'H'],
-    [2, 'Helium', 4.0026, 'He'],
-    [3, 'Lithium', 6.941, 'Li'],
-    [4, 'Beryllium', 9.0122, 'Be'],
-    [5, 'Boron', 10.81, 'B']
-  ];
-  data=this.dataService.getData()?this.dataService.getData():this.data2;
-  saveData(data:string): void {
-    this.dataService.setData(data);
+  ngOnChanges(): void {
+    this.columns = this.dataXlsx[0];
+    this.selectAll = true;
+    this.selectedRowIndices = [...Array(this.dataXlsx.length ).keys()];
   }
 
-  loadData(): void {
-    const data = this.dataService.getData();
-    // usa i dati
-    console.log(data[0]);
+  toggleSelectAll(): void {
+    if (this.selectAll) {
+      this.selectedRowIndices = [...Array(this.dataXlsx.length).keys()];
+    } else {
+      this.selectedRowIndices = [];
+    }
   }
 
+  isSelected(index: number): boolean {
+    return this.selectedRowIndices.includes(index);
+  }
+
+  testSelect(i: number):void{
+    console.log(i,this.selectedRowIndices)
+    const found = this.selectedRowIndices.includes(i);
+    if(found){
+      const index = this.selectedRowIndices.indexOf(i)
+      this.selectedRowIndices.splice(index, 1);
+      console.log(this.selectedRowIndices)
+    }
+    else{
+      this.selectedRowIndices.push(i);
+      this.selectedRowIndices.sort((a, b) => a - b);
+      console.log(this.selectedRowIndices)
+    }
+  }
+  saveSelectedRows(): void {
+    const selectedRows = this.selectedRowIndices.map(index => this.dataXlsx[index]);
+    console.log(selectedRows);
+  }
 }
