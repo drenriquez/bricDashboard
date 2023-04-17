@@ -54,5 +54,9 @@ function jsonGeneratorForTable (array_schema, excelData){
     tableObject[nameTable]=recordsList;
     recordsForTable.push(tableObject);
   }
+  console.log(recordsForTable)
  return recordsForTable
 }
+
+module.exports = { jsonGeneratorForTable }
+

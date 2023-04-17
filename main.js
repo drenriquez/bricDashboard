@@ -4,6 +4,8 @@ const url = require('url');
 const electronReload = require('electron-reloader');
 const { readRow, readSchema } = require('./services/reading_functions.js');
 const { create_folder_and_schema }= require('./services/create_folder.js');
+const { jsonGeneratorForTable } = require('./services/records_generator.js');
+
 const fs = require('fs');
 
 let mainWindow;
@@ -66,6 +68,7 @@ ipcMain.on('readXlsx',(event, arg) => {
   readRow(arg);
   mainWindow.webContents.send('rispostaIpcMainReadXlsx');
 });
+
 ipcMain.on('readSchema',async (event, arg) => {
   console.log('main.js++++++++++ readSchema activated +++++++++++++++++++++');
   readSchema()
@@ -78,4 +81,13 @@ ipcMain.on('readSchema',async (event, arg) => {
     // Gestisci l'errore come necessario
     console.error(err);
   });
+})
+
+ipcMain.on('tablesGenerator',async (event, array_schema, excelData)=>{
+  //jsonGeneratorForTable(array_schema, excelData)
+  // .then((jsonDataTables) => {
+  //   // Usa il file JSON come necessario
+  //   console.log(jsonData.length);
+  mainWindow.webContents.send('resultTablesGenerator',jsonGeneratorForTable(array_schema, excelData));
+  // })
 })

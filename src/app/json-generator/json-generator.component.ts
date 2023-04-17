@@ -11,8 +11,9 @@ export class JsonGeneratorComponent {
 
   constructor(private dataService: DataService, private electronService: ElectronService) {
 
-    this.electronService.ipcRenderer.on('rispostaIpcMainReadXlsx',()=>{
-      console.log('-------------ricevuto da ipcMain in rispostaIpcMainReadXlsx -----------')
+    this.electronService.ipcRenderer.on('resultTablesGenerator',(event, arg)=>{
+      console.log('-------------ricevuto da ipcMain in resultTablesGenerator -----------');
+      console.log(arg)
     })
   }
   value='test'
@@ -24,10 +25,10 @@ export class JsonGeneratorComponent {
     console.log(this.data);
   }
 
-  public sendXlsx(){
+  public tablesGenerator(){
     if(this.electronService.isElectronApp){//verifica se è una app e non una webapp
-      this.electronService.ipcRenderer.send('readXlsx',this.data);
-      console.log('button sendXlsx');
+      this.electronService.ipcRenderer.send('tablesGenerator',this.dataService.getSchema(),this.dataService.getData());
+      console.log('tablesGenerator');
     }
   }
   public getJsonSchema(){

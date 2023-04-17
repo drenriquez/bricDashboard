@@ -13,6 +13,7 @@ th {
   background-color: #f0f0f0;
   padding: 0;
   max-height: 20px;
+  min-width: 30px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -32,3 +33,6 @@ td {
   position: sticky;
   left: 0;
 }
+
+
+

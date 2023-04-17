@@ -15,6 +15,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 //import {ClipboardModule} from '@angular/cdk/clipboard';
 
 import { HomeComponent } from './home/home.component';
@@ -33,6 +34,7 @@ import { VisualizerJsonSchemaComponent } from './visualizer-json-schema/visualiz
     VisualizerJsonSchemaComponent
   ],
   imports: [
+    MatCheckboxModule,
     MatTableModule,
     MatExpansionModule,
     MatGridListModule,
