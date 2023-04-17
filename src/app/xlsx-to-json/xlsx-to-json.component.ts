@@ -9,7 +9,7 @@ import { DataService } from '../service/data-service.service';
 })
 export class XlsxToJsonComponent {
   dataFromFile:any;
-  fileName:string='';
+  fileName=this.dataService.getFilename();
   panelOpenState = false;
   constructor(private dataService: DataService) {};
   handleFileDrop(event: any) {
@@ -23,6 +23,7 @@ export class XlsxToJsonComponent {
       console.log(data);
       this.dataFromFile=data;
       this.fileName=file.name;
+      this.dataService.setFilename(file.name);
       console.log(file.name);
       console.log(file.type);
       console.log(file.size);

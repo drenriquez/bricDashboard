@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { DataService } from '../service/data-service.service';
 
 @Component({
   selector: 'app-table-excel',
@@ -11,7 +12,18 @@ export class TableExcelComponent {
   selectedRowIndices: number[] = [];
   selectAll: boolean = true;
 
+  constructor(private dataService: DataService){
+  }
+  ngOnInit(): void {
+   if(this.dataXlsx==undefined){
+    this.dataXlsx=this.dataService.getData();
+   }
+
+
+
+  }
   ngOnChanges(): void {
+    this.dataXlsx=this.dataService.getData();
     this.columns = this.dataXlsx[0];
     this.selectAll = true;
     this.selectedRowIndices = [...Array(this.dataXlsx.length ).keys()];
@@ -46,5 +58,6 @@ export class TableExcelComponent {
   saveSelectedRows(): void {
     const selectedRows = this.selectedRowIndices.map(index => this.dataXlsx[index]);
     console.log(selectedRows);
+    this.dataService.setData(selectedRows)
   }
 }

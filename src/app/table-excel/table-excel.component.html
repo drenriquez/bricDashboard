@@ -3,13 +3,13 @@
   <table>
     <thead>
       <tr>
-        <th><input type="checkbox" (change)="testSelect(0)" checked="true"/></th>
+        <th class="table-checkbox-column"><input type="checkbox" (change)="testSelect(0)" checked="true"/></th>
         <th *ngFor="let col of columns">{{ col }}</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let row of dataXlsx.slice(1); let i = index" [class.selected-row]="isSelected(i)">
-        <td><input type="checkbox" (change)="testSelect(i+1)" checked="true" [value]="i+1" /></td>
+        <td class="table-checkbox-column"><input type="checkbox" (change)="testSelect(i+1)" checked="true" [value]="i+1" /></td>
         <td *ngFor="let cell of row">{{ cell }}</td>
       </tr>
     </tbody>
