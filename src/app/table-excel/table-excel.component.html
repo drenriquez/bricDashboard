@@ -17,4 +17,7 @@
   <br>
 </div>
 <br>
+<div class="container">
 <button mat-raised-button color="warn" (click)="saveSelectedRows()">Salva righe selezionate</button>
+<mat-spinner  diameter="30" color="warn" *ngIf="isLoading"></mat-spinner>
+</div>

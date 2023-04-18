@@ -11,6 +11,7 @@ export class TableExcelComponent {
   columns: string[] = [];
   selectedRowIndices: number[] = [];
   selectAll: boolean = true;
+  isLoading: boolean = false;
 
   constructor(private dataService: DataService){
   }
@@ -59,5 +60,7 @@ export class TableExcelComponent {
     const selectedRows = this.selectedRowIndices.map(index => this.dataXlsx[index]);
     console.log(selectedRows);
     this.dataService.setData(selectedRows)
+    this.isLoading=true;
+    setTimeout(()=>{this.isLoading=false},1000)
   }
 }

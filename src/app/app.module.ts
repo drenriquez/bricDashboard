@@ -16,6 +16,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 //import {ClipboardModule} from '@angular/cdk/clipboard';
 
 import { HomeComponent } from './home/home.component';
@@ -23,6 +24,7 @@ import { XlsxToJsonComponent } from './xlsx-to-json/xlsx-to-json.component';
 import { TableExcelComponent } from './table-excel/table-excel.component';
 import { JsonGeneratorComponent } from './json-generator/json-generator.component';
 import { VisualizerJsonSchemaComponent } from './visualizer-json-schema/visualizer-json-schema.component';
+import { TableJsonComponent } from './table-json/table-json.component';
 
 @NgModule({
   declarations: [
@@ -31,9 +33,11 @@ import { VisualizerJsonSchemaComponent } from './visualizer-json-schema/visualiz
     XlsxToJsonComponent,
     TableExcelComponent,
     JsonGeneratorComponent,
-    VisualizerJsonSchemaComponent
+    VisualizerJsonSchemaComponent,
+    TableJsonComponent
   ],
   imports: [
+    MatProgressSpinnerModule,
     MatCheckboxModule,
     MatTableModule,
     MatExpansionModule,

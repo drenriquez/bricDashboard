@@ -10,6 +10,7 @@ export class DataService {
   private globalData: any;
   private schema:any;
   private filenameExcel='';
+  private tablesGenerated=[];
 
   constructor() { }
 
@@ -36,4 +37,13 @@ export class DataService {
   setFilename(data: any): void{
     this.filenameExcel = data
   }
+
+  getTablesGenerated(){
+    return this.tablesGenerated
+  }
+
+  setTablesGenerated(data: any): void{
+    this.tablesGenerated = data
+  }
+
 }
