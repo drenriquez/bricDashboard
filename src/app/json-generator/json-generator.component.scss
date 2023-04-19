@@ -17,6 +17,12 @@ ngx-json-viewer{
   --ngx-json-font-family : arial;
   --ngx-json-font-family : 16px;
 }
+p{
+  font-size: 30px;
+  font-weight: bold;
+  font-family:cursive ;
+  color:#10805e;
+}
 .window{
   background-color: rgb(201, 214, 210);
   padding: 20px;
@@ -28,6 +34,17 @@ ngx-json-viewer{
 mat-spinner{
   position:absolute;
   margin: 10px;
-  top:-8px;
-  left: 170px;
+  top: 5px;
+  left: 120px;
+}
+.container {
+  display: flex;
+}
+button{
+  width: 100px;
+  margin: 10px;
+}
+#save-button{
+  margin-left: 150px;
+  //left: 150px;
 }

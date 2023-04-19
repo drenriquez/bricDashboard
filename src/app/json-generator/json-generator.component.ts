@@ -44,7 +44,10 @@ export class JsonGeneratorComponent {
     setTimeout(()=>{this.getData();this.getJsonSchema();},2000)
   }
 
-  public getJsonSchema() {
+  getJsonSchema() {
     console.log(this.dataService.getSchema());
+  }
+  saveTables(){
+
   }
 }

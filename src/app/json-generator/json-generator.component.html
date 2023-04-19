@@ -1,13 +1,18 @@
-<p>json-generator works!</p>
-<button mat-raised-button color="warn" (click)="getData()">show data</button>
+<p>json-generator</p>
+<div class="container">
+<button mat-raised-button color="primary" (click)="getData()">show data</button>
 <br>
 <br>
-<button mat-raised-button color="warn" (click)="getJsonSchema()">show Schema</button>
+<button mat-raised-button color="primary" (click)="getJsonSchema()">show Schema</button>
 <br>
 <br>
 <div class="container">
-<button mat-raised-button color="warn" (click)="tablesGenerator()">Tables Genearator</button>
-<mat-spinner  diameter="30" color="warn" *ngIf="isLoading"></mat-spinner>
+<button mat-raised-button color="primary" (click)="tablesGenerator()">Tables Genearator</button>
+<mat-spinner  diameter="30" color="primary" *ngIf="isLoading"></mat-spinner>
+</div>
+<br>
+<br>
+<button id="save-button" mat-raised-button color="warn" (click)="saveTables()">Save JsonFiles</button>
 </div>
 <br>
 
