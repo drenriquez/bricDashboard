@@ -37,9 +37,7 @@ mat-spinner{
   top: 5px;
   left: 120px;
 }
-.container {
-  display: flex;
-}
+
 button{
   width: 100px;
   margin: 10px;
@@ -47,4 +45,10 @@ button{
 #save-button{
   margin-left: 150px;
   //left: 150px;
+}
+.mat-spinner-saving{
+  position:absolute;
+  margin: 10px;
+  top: -10px;
+  left: 480px;
 }

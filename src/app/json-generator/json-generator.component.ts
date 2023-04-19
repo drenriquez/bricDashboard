@@ -14,6 +14,7 @@ export class JsonGeneratorComponent {
   data = this.dataService.getData() ? this.dataService.getData() : [];
   jsonData2 = JSON.stringify(this.jsonData, null, 2);
   isLoading: boolean = false;
+  saving: boolean=false;
 
   constructor(private dataService: DataService, private electronService: ElectronService) {
     this.electronService.ipcRenderer.on('resultTablesGenerator', (event, arg) => {
@@ -23,6 +24,16 @@ export class JsonGeneratorComponent {
       this.tablesGenerated = arg;
       this.isLoading=false
 
+    });
+    electronService.ipcRenderer.on('resultSaveTables',(event,res)=>{
+      for (let tab of res){
+        const nameTable=Object.keys(tab)[0];
+        const arrayTable=Object.values(tab)[0];
+        console.log(nameTable,arrayTable)
+
+      }
+      //console.log(res);
+      this.saving=false;
     })
   }
 
@@ -48,6 +59,8 @@ export class JsonGeneratorComponent {
     console.log(this.dataService.getSchema());
   }
   saveTables(){
-
+    this.saving=true;
+    this.electronService.ipcRenderer.send('saveTables', this.tablesGenerated);
+    setTimeout(()=>{this.getData();this.getJsonSchema();},2000)
   }
 }

@@ -91,3 +91,17 @@ ipcMain.on('tablesGenerator',async (event, array_schema, excelData)=>{
   mainWindow.webContents.send('resultTablesGenerator',jsonGeneratorForTable(array_schema, excelData));
   // })
 })
+ipcMain.on('saveTables',async (event, jsonData)=>{
+  //jsonGeneratorForTable(array_schema, excelData)
+  // .then((jsonDataTables) => {
+  //   // Usa il file JSON come necessario
+  //console.log(jsonData);
+  for (let tab of jsonData){
+    const nameTable=Object.keys(tab)[0];
+    const arrayTable=Object.values(tab)[0];
+    console.log(nameTable,arrayTable)
+
+  }
+  mainWindow.webContents.send('resultSaveTables', jsonData);
+  // })
+})
