@@ -5,7 +5,7 @@ const electronReload = require('electron-reloader');
 const { readRow, readSchema } = require('./services/reading_functions.js');
 const { create_folder_and_schema }= require('./services/create_folder.js');
 const { jsonGeneratorForTable } = require('./services/records_generator.js');
-
+const{ saveForSingleTable } = require('./services/saving_function.js')
 const fs = require('fs');
 
 let mainWindow;
@@ -99,8 +99,8 @@ ipcMain.on('saveTables',async (event, jsonData)=>{
   for (let tab of jsonData){
     const nameTable=Object.keys(tab)[0];
     const arrayTable=Object.values(tab)[0];
-    console.log(nameTable,arrayTable)
-
+    console.log(nameTable,arrayTable);
+    saveForSingleTable(arrayTable,nameTable);
   }
   mainWindow.webContents.send('resultSaveTables', jsonData);
   // })

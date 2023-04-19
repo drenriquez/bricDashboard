@@ -29,7 +29,8 @@ export class JsonGeneratorComponent {
       for (let tab of res){
         const nameTable=Object.keys(tab)[0];
         const arrayTable=Object.values(tab)[0];
-        console.log(nameTable,arrayTable)
+        const dataOne = JSON.stringify(arrayTable,null,'\t');
+        console.log(nameTable,dataOne)
 
       }
       //console.log(res);
