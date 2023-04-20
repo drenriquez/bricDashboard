@@ -21,7 +21,12 @@ function createRecordsForValue(fields, arrayIndexValue, setting, valuesXlsx) {
       } else if (indexValue.length > 1) {
         valueResult = indexValue.map(val => rowValue[val]).join('');
       } else {
-        valueResult = rowValue[indexValue];
+        if(rowValue[indexValue]===undefined){
+          valueResult = null;
+        }
+        else{
+          valueResult = rowValue[indexValue];
+        }
       }
       record[field] = valueResult;
     }
