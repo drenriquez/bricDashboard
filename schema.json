@@ -1,7 +1,7 @@
 [
   {
     "Patient":{
-        "fields":["centerId","biobankCode","pid","code"],
+        "fields":["centerId","biobankCode","anoncode","code"],
         "setting":[0,true],
         "values":[
             ["dd74ba73-8a99-41dd-8974-0a6912d3591a",1,5,0]
@@ -95,17 +95,88 @@
     }
   },
   {
-      "ImagingTestFinding":{
-          "fields":["noduleCount","posProb","LongAxis","ShortAxis","MaxDiam","VolTot","consistenzaNodulo","bordiReg","CalcificazioneBenign","FormaSpiculata","noduloVistoInSerie","noduloVistoInImmagine","VDT","status","change","imagingTestID"],
-          "setting":null,
-          "values":[
-              [169,172,173,174,175,176,181,182,183,184,185,186,null,null,null,201],
-              [169,205,206,207,208,209,210,null,null,211,212,213,214,215,216,218],
-              [169,222,223,224,225,226,227,null,null,228,229,230,231,232,233,235],
-              [169,239,240,241,242,243,244,null,null,245,246,247,248,249,250,252],
-              [169,256,257,258,259,260,261,null,null,262,263,264,265,266,267,269],
-              [169,273,274,275,276,277,278,null,null,279,280,281,282,283,284,286]
-          ]
-      }
+    "Drugs":{
+        "fields":["type","value","drugsAndDosage","sinceWhen","dosage","dailyDosage","patientID"],
+        "setting":[0,true],
+        "values":[
+          ["TRATTAMENTO FARMACOLOGICO GENERICO",29,30,null,null,null,0],
+          ["TRATTAMENTO FARMACOLOGICO PER ASMA",23,24,null,null,null,0],
+          ["TRATTAMENTO FARMACOLOGICO PER COLESTEROLO",33,34,null,null,null,0],
+          ["ASPIRINA",37,null,38,39,40,0],
+          ["TICLOPIDINA",41,null,42,43,44,0],
+          ["CLOPIDROGEL (PLAVIX)",45,null,46,47,48,0],
+          ["ALTRI FARMACI",69,70,null,null,null,0]
+        ]
+    }
+  },
+  {
+    "ClinicalTest":{
+        "fields":["type","value","date","info","patientID"],
+        "setting":[0,true],
+        "values":[
+          ["TAC BASALE",null,128,null,0],
+          ["PA (SYS)",130,128,null,0],
+          ["PA (DIA)",131,128,null,0],
+          ["FC (bpm)",132,128,null,0],
+          ["SATURIMETRIA",133,128,null,0],
+          ["CO: (ppm)",134,128,null,0],
+          ["Colesterolo TOT: (mg/dl)",136,135,null,0],
+          ["HDL: (mg/dl)",137,135,null,0],
+          [ "LDL: (mg/dl)",138,135,null,0],
+          [ "Trigliceridi: (mg/dl)",139,135,null,0],
+          [ "FEV1(%)",140,128,null,0],
+          [ "FVC",141,128,null,0],
+          [ "FEV1(l)",142,128,null,0],
+          [ "FVC(l)",143,128,null,0],
+          [ "PEF(l/min)",144,128,null,0],
+          [ "Ratio (FEV1/FVC):144",145,128,null,0],
+          [ "TEST MOTIVAZIONALE",147,128,null,0],
+          [ "TEST DIPENDENZA",148,128,null,0],
+          [ "BMI",157,128,null,0],
+          [ "%PLCO",167,128,null,0],
+          [ "Pack-Years",168,128,null,0],
+          [ "LUNG: Lymph nodes",187,128,null,0],
+          [ "LUNG: COPD",188,128,null,0],
+          [ "LUNG: Fibrosis",189,128,null,0],
+          [ "LUNG: Pleural Effusion",190,128,null,0],
+          [ "LUNG: Other",191,128,null,0],
+          [ "HEART: Coronary Calcification",192,128,null,0],
+          [ "Enfisema",193,128,193,0],
+          [ "CTDI vol(mGy)",195,128,null,0],
+          [ "PLCO/6%/ 1yrs",196,128,null,0],
+          [ "VISCHT",null,197,null,0],
+          [ "Rischio alla BASALE",198,128,null,0],
+          [ "Rischio alle SUCCESSIVE",199,128,null,0],
+          [ "PET_RESULT",288,287,null,0],
+          [ "BIO_RESULT",290,289,null,0]
+        ]
+    }
+  },
+  {
+    "ImagingTestFinding":{
+        "fields":["noduleCount","posProb","LongAxis","ShortAxis","MaxDiam","VolTot","consistenzaNodulo","bordiReg","CalcificazioneBenign","FormaSpiculata","noduloVistoInSerie","noduloVistoInImmagine","VDT","status","change","imagingTestID"],
+        "setting":null,
+        "values":[
+            [169,172,173,174,175,176,181,182,183,184,185,186,null,null,null,201],
+            [169,205,206,207,208,209,210,null,null,211,212,213,214,215,216,218],
+            [169,222,223,224,225,226,227,null,null,228,229,230,231,232,233,235],
+            [169,239,240,241,242,243,244,null,null,245,246,247,248,249,250,252],
+            [169,256,257,258,259,260,261,null,null,262,263,264,265,266,267,269],
+            [169,273,274,275,276,277,278,null,null,279,280,281,282,283,284,286]
+        ]
+    }
+  },
+  {
+    "ImagingTest":{
+        "FIELDS":["Description","date","LunRADS","accessionNumber","anoncode","patientID"],
+        "value":[
+            ["TAC_Basale",128,200,201,5,0],
+            ["1 FUP",203,217,218,5,0],
+            ["2 FUP",220,234,235,5,0],
+            ["3 FUP",237,251,252,5,0],
+            ["4 FUP",254,268,269,5,0],
+            ["5 FUP",271,285,286,5,0]
+        ]
+    }
   }
 ]
