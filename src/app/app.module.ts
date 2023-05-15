@@ -25,6 +25,7 @@ import { TableExcelComponent } from './table-excel/table-excel.component';
 import { JsonGeneratorComponent } from './json-generator/json-generator.component';
 import { VisualizerJsonSchemaComponent } from './visualizer-json-schema/visualizer-json-schema.component';
 import { TableJsonComponent } from './table-json/table-json.component';
+import { RemoteDatabaseComponent } from './remote-database/remote-database.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TableJsonComponent } from './table-json/table-json.component';
     TableExcelComponent,
     JsonGeneratorComponent,
     VisualizerJsonSchemaComponent,
-    TableJsonComponent
+    TableJsonComponent,
+    RemoteDatabaseComponent
   ],
   imports: [
     MatProgressSpinnerModule,

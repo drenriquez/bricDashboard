@@ -168,8 +168,9 @@
   },
   {
     "ImagingTest":{
-        "FIELDS":["Description","date","LunRADS","accessionNumber","anoncode","patientID"],
-        "value":[
+        "fields":["Description","date","LunRADS","accessionNumber","anoncode","patientID"],
+        "setting":[0,true],
+        "values":[
             ["TAC_Basale",128,200,201,5,0],
             ["1 FUP",203,217,218,5,0],
             ["2 FUP",220,234,235,5,0],
